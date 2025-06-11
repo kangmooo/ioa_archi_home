@@ -1,28 +1,20 @@
-# 1단계: Build with Gradle Wrapper (자동으로 gradle 설치 및 사용)
+# 1단계: 빌드
 FROM eclipse-temurin:21-jdk AS build
 
-# 필요한 패키지 설치 (curl, unzip)
 RUN apt-get update && apt-get install -y curl unzip
-
 WORKDIR /app
 
-# 프로젝트 파일 복사 (필요 시 .dockerignore 설정 추천)
 COPY . .
-
-# 권한 문제 방지를 위해 gradlew 실행권한 부여
 RUN chmod +x ./gradlew
 
-# gradlew 버전 확인
-RUN ./gradlew --version
+# 명확히 bootJar 실행
+RUN ./gradlew bootJar --no-daemon
 
-# 프로젝트 빌드
-RUN ./gradlew build --no-daemon
-
-# 2단계: Run 단계
+# 2단계: 실행
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# 빌드된 jar 파일 복사
-COPY --from=build /app/build/libs/*.jar app.jar
+# 정확한 JAR 이름 지정
+COPY --from=build /app/build/libs/app.jar app.jar
 
 CMD ["java", "-jar", "app.jar"]
