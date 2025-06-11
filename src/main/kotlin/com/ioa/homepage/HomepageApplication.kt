@@ -9,4 +9,3 @@ class HomepageApplication
 fun main(args: Array<String>) {
     runApplication<HomepageApplication>(*args)
 }
-// test
