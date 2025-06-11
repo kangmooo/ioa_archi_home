@@ -49,4 +49,5 @@ tasks.withType<Test> {
 
 tasks.bootJar {
     archiveFileName.set("app.jar") // JAR 이름 일치시킴
+    mainClass.set("com.ioa.homepage.HomepageApplication")  // 실제 메인 클래스 패키지명+클래스명으로 수정
 }
