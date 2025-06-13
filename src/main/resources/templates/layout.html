@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title th:text="${title} ?: 'IOA Architecture'">IOA Architecture</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white text-neutral-900">
 
-<!-- Header -->
+<!-- ✅ Header -->
 <div th:replace="~{fragments/header :: header}"></div>
 
-<!-- Main Content -->
+<!-- ✅ Main Content -->
 <main class="pt-20">
     <div th:replace="~{${contentTemplate} :: content}"></div>
 </main>
 
-<!-- Footer -->
+<!-- ✅ Footer -->
 <div th:replace="~{fragments/footer :: footer}"></div>
+
+<!-- ✅ Image Modal (숨겨진 상태에서 시작) -->
+<div id="imageModal"
+     class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center transition-opacity duration-300">
+    <img id="modalImage"
+         class="max-w-4xl max-h-[90vh] transform transition-transform duration-300 scale-0 rounded-lg shadow-lg"/>
+</div>
+
+<!-- ✅ Modal Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        window.showImageModal = function (src) {
+            modalImage.src = src;
+            modal.classList.remove('hidden');
+            // 트랜지션을 위해 강제로 리플로우
+            void modal.offsetWidth;
+            modal.classList.add('opacity-100');
+            modalImage.classList.add('scale-100');
+        };
+
+        modal.addEventListener('click', () => {
+            modal.classList.remove('opacity-100');
+            modalImage.classList.remove('scale-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        });
+    });
+</script>
 
 </body>
 </html>

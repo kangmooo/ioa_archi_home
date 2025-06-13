@@ -2,7 +2,7 @@
 
   <!-- 히어로 이미지 -->
   <div class="mb-10">
-    <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shor House" class="w-full h-[500px] object-cover rounded-lg shadow-md" />
+    <img onclick=showImageModal(this.src) src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shor House" class="w-full h-[500px] object-cover rounded-lg shadow-md" />
   </div>
 
   <!-- 프로젝트 설명 -->
@@ -16,10 +16,10 @@
 
   <!-- 상세 이미지 섹션 -->
   <section class="grid md:grid-cols-2 gap-6 mb-16">
-    <img src="https://images.pexels.com/photos/6422929/pexels-photo-6422929.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Living room" class="rounded-lg shadow-sm" />
-    <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Facade" class="rounded-lg shadow-sm" />
-    <img src="https://images.pexels.com/photos/20259351/pexels-photo-20259351/free-photo-of-living-room-in-house.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Courtyard" class="rounded-lg shadow-sm" />
-    <img src="https://images.pexels.com/photos/31748911/pexels-photo-31748911/free-photo-of-modern-living-room-with-elegant-interior-design.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Interior details" class="rounded-lg shadow-sm" />
+    <img src="https://images.pexels.com/photos/6422929/pexels-photo-6422929.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Living room" class="rounded-lg shadow-sm" onclick=showImageModal(this.src) />
+    <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Facade" class="rounded-lg shadow-sm" onclick=showImageModal(this.src) />
+    <img src="https://images.pexels.com/photos/20259351/pexels-photo-20259351/free-photo-of-living-room-in-house.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Courtyard" class="rounded-lg shadow-sm" onclick=showImageModal(this.src) />
+    <img src="https://images.pexels.com/photos/31748911/pexels-photo-31748911/free-photo-of-modern-living-room-with-elegant-interior-design.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Interior details" class="rounded-lg shadow-sm" onclick=showImageModal(this.src) />
   </section>
 
   <!-- 동영상 (옵션) -->
